@@ -70,7 +70,7 @@ public class Writer {
     @Override
     public String toString() {
         return "Writer{" +
-                "writer_id=" + writer_id +
+                "writer_id="+ writer_id +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", age=" + age +
