@@ -3,7 +3,7 @@ package org.example;
 public class Books {
     String title;
     int year;
-    Writer booksWriter;
+    int writer_id;
 
     public Books() {
     }
