@@ -8,10 +8,10 @@ public class Books {
     public Books() {
     }
 
-    public Books(String title, int year, Writer booksWriter) {
+    public Books(String title, int year, int writer_id) {
         this.title = title;
         this.year = year;
-        this.booksWriter = booksWriter;
+        this.writer_id = writer_id;
     }
 
     public String getTitle() {
@@ -30,12 +30,12 @@ public class Books {
         this.year = year;
     }
 
-    public Writer getBooksWriter() {
-        return booksWriter;
+    public int getWriter_id() {
+        return writer_id;
     }
 
-    public void setBooksWriter(Writer booksWriter) {
-        this.booksWriter = booksWriter;
+    public void setWriter_id(int writer_id) {
+        this.writer_id = writer_id;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Books {
         return "Books{" +
                 "title='" + title + '\'' +
                 ", year=" + year +
-                ", booksWriter=" + booksWriter +
+                ", writer id=" + writer_id +
                 '}';
     }
 }
