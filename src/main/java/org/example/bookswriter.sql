@@ -6,6 +6,7 @@ create table if not exists writers(
     );
 
 create table if not exists books(
+    book_id serial primary key ,
     bookName varchar(255),
     year int,
     writerid integer references writers (id)
