@@ -11,7 +11,7 @@ public class BookRepository {
     }
     public void save(Books books) throws SQLException {
         Connection connection = jdbcconnection.getConnection();
-        String savebook = "insert into books(?,?,?)";
+        String savebook = "insert into books(?,?,?) ";
         PreparedStatement preparedStatement = connection.prepareStatement(savebook);
         preparedStatement.setString(1,"a");
         preparedStatement.setInt(2,1992);
