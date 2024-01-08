@@ -13,8 +13,9 @@ public class BookRepository {
         Connection connection = jdbcconnection.getConnection();
         String savebook = "insert into books(?,?,?) ";
         PreparedStatement preparedStatement = connection.prepareStatement(savebook);
-        preparedStatement.setString(1,"a");
-        preparedStatement.setInt(2,1992);
-        preparedStatement.setInt(3,1);
+        preparedStatement.setString(1,books.getTitle());
+        preparedStatement.setInt(2,books.getYear());
+        preparedStatement.setInt(3,books.getWriter_id());
+
     }
 }
