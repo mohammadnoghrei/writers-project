@@ -1,7 +1,9 @@
 package org.example;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class WriterRepository {
@@ -21,7 +23,21 @@ public class WriterRepository {
         System.out.println(preparedStatement.executeUpdate());
     }
 
-//    public Writer load(int writerid){
-//
-//    }
+    public Writer load(int writerid) throws SQLException {
+        Connection connection =jdbcconnection.getConnection();
+        String select = "SELECT * FROM writers WHERE id= ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(select);
+        preparedStatement.setInt(1,writerid);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()){
+            int id = resultSet.getInt("id");
+            String firstname= resultSet.getString("FirstName");
+            String lasttname= resultSet.getString("LastName");
+            int age = resultSet.getInt("age");
+            Writer writer =new Writer(id,firstname,lasttname,age);
+            return writer;
+        }else System.out.println("your writer id not exist");
+        return null;
+
+    }
 }
