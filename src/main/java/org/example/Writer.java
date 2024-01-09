@@ -7,7 +7,7 @@ public class Writer {
     String first_name;
     String last_name;
     int age;
-    String[] books;
+    Books[] books;
 
     public Writer() {
     }
@@ -19,7 +19,7 @@ public class Writer {
         this.age = age;
     }
 
-    public Writer(int writer_id, String first_name, String last_name, int age, String[] books) {
+    public Writer(int writer_id, String first_name, String last_name, int age, Books[] books) {
         this.writer_id = writer_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -27,7 +27,7 @@ public class Writer {
         this.books = books;
     }
 
-    public Writer(String first_name, String last_name, int age, String[] books) {
+    public Writer(String first_name, String last_name, int age, Books[] books) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.age = age;
@@ -66,18 +66,18 @@ public class Writer {
         this.age = age;
     }
 
-    public String[] getBooks() {
+    public Books[] getBooks() {
         return books;
     }
 
-    public void setBooks(String[] books) {
+    public void setBooks(Books[] books) {
         this.books = books;
     }
 
     @Override
     public String toString() {
         return "Writer{" +
-                "writer_id="+ writer_id +
+                "writer_id=" + writer_id +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", age=" + age +
