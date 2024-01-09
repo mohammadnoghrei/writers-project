@@ -1,6 +1,7 @@
 package org.example;
 
 public class Books {
+    int book_id;
     String title;
     int year;
     int writer_id;
@@ -12,6 +13,21 @@ public class Books {
         this.title = title;
         this.year = year;
         this.writer_id = writer_id;
+    }
+
+    public Books(int book_id, String title, int year, int writer_id) {
+        this.book_id = book_id;
+        this.title = title;
+        this.year = year;
+        this.writer_id = writer_id;
+    }
+
+    public int getBook_id() {
+        return book_id;
+    }
+
+    public void setBook_id(int book_id) {
+        this.book_id = book_id;
     }
 
     public String getTitle() {
@@ -41,9 +57,10 @@ public class Books {
     @Override
     public String toString() {
         return "Books{" +
-                "title='" + title + '\'' +
+                "book_id=" + book_id +
+                ", title='" + title + '\'' +
                 ", year=" + year +
-                ", writer id=" + writer_id +
+                ", writer_id=" + writer_id +
                 '}';
     }
 }
