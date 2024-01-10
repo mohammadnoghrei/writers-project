@@ -17,6 +17,7 @@ public class BookRepository {
         preparedStatement.setDate(2, books.getYear());
         preparedStatement.setInt(3, books.getWriter_id());
         preparedStatement.executeUpdate();
+        System.out.println("your books id is :"+findid(books.getTitle()));
     }
 
     public Books load(int bookid) throws SQLException {
@@ -42,5 +43,16 @@ public class BookRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(select);
         preparedStatement.setString(1,books.getTitle() );
         preparedStatement.executeUpdate();
+    }
+
+    private   int findid(String name) throws SQLException {
+        Connection connection = jdbcconnection.getConnection();
+        String select = "SELECT book_id FROM books WHERE bookName= ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(select);
+        preparedStatement.setString(1, name);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        int book_id = resultSet.getInt("book_id");
+        return book_id;
     }
 }
