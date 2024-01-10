@@ -4,8 +4,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class WriterService {
-    Scanner scanner =new Scanner(System.in);
-    public void register() throws SQLException {
+
+    public static void register() throws SQLException {
+        Scanner scanner =new Scanner(System.in);
         System.out.println("please enter your firstname:");
         String firstname= scanner.nextLine();
         System.out.println("please enter your lastname:");
