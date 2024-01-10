@@ -26,6 +26,7 @@ public class BookRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(select);
         preparedStatement.setInt(1, bookid);
         ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
         if (resultSet.next()) {
             int book_id = resultSet.getInt("book_id");
             String bookName = resultSet.getString("bookName");

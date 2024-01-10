@@ -30,6 +30,7 @@ public class WriterRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(select);
         preparedStatement.setInt(1,writerid);
         ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
         if (resultSet.next()){
             int id = resultSet.getInt("id");
             String firstname= resultSet.getString("FirstName");
