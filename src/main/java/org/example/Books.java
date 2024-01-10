@@ -1,21 +1,23 @@
 package org.example;
 
+import java.util.Date;
+
 public class Books {
     int book_id;
     String title;
-    int year;
+    Date year;
     int writer_id;
 
     public Books() {
     }
 
-    public Books(String title, int year, int writer_id) {
+    public Books(String title, Date year, int writer_id) {
         this.title = title;
         this.year = year;
         this.writer_id = writer_id;
     }
 
-    public Books(int book_id, String title, int year, int writer_id) {
+    public Books(int book_id, String title, Date year, int writer_id) {
         this.book_id = book_id;
         this.title = title;
         this.year = year;
@@ -38,11 +40,11 @@ public class Books {
         this.title = title;
     }
 
-    public int getYear() {
-        return year;
+    public java.sql.Date getYear() {
+        return (java.sql.Date) year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Date year) {
         this.year = year;
     }
 
