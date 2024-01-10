@@ -1,9 +1,6 @@
 package org.example;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class BookRepository {
     jdbcconnection jdbcconnection = new jdbcconnection();
@@ -17,7 +14,7 @@ public class BookRepository {
                 "values (?,?,?);";
         PreparedStatement preparedStatement = connection.prepareStatement(savebook);
         preparedStatement.setString(1, books.getTitle());
-        preparedStatement.setInt(2, books.getYear());
+        preparedStatement.setDate(2, books.getYear());
         preparedStatement.setInt(3, books.getWriter_id());
         preparedStatement.executeUpdate();
     }
@@ -31,7 +28,7 @@ public class BookRepository {
         if (resultSet.next()) {
             int book_id = resultSet.getInt("book_id");
             String bookName = resultSet.getString("bookName");
-            int year = resultSet.getInt("year");
+            Date year = Date.valueOf(resultSet.getString("year"));
             int writerid = resultSet.getInt("writerid");
             Books books = new Books(book_id, bookName, year, writerid);
             return books;
