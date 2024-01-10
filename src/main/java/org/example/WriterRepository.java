@@ -19,8 +19,9 @@ public class WriterRepository {
         preparedStatement.setString( 1,writer.getFirst_name());
         preparedStatement.setString(2,writer.getLast_name());
         preparedStatement.setInt(3, writer.getAge());
-        preparedStatement.executeUpdate();
-        System.out.println(preparedStatement.executeUpdate());
+        int exequte=preparedStatement.executeUpdate();
+        int id=findid(writer.first_name, writer.last_name);
+        System.out.println("your id is:"+id);
     }
 
     public Writer load(int writerid) throws SQLException {
@@ -39,5 +40,18 @@ public class WriterRepository {
         }else System.out.println("your writer id not exist");
         return null;
 
+
+    }
+    private int findid(String fname, String lname) throws SQLException {
+        Connection connection =jdbcconnection.getConnection();
+        String select = "SELECT id FROM writers WHERE FirstName=? and LastName=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(select);
+        preparedStatement.setString(1,fname);
+        preparedStatement.setString(2,lname);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+
+            int id = resultSet.getInt("id");
+            return id;
     }
 }
